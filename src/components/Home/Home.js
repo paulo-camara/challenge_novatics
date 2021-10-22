@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { LabelWithColor } from '../shared/LabelWithColor/LabelWithcolor';
 import { Filter } from '../shared/Filter/Filter';
-
 import { GetApiRoutes } from '../../scripts/ApiRoutes';
 import { Request } from '../../scripts/Request';
 import { Card } from '../shared/ImageBox/Card';
@@ -15,18 +13,36 @@ export const Home = () => {
     }, []);
 
     const _getPokemons = () => {
-        Request(GetApiRoutes('GetPokemons'), {}, _onSuccess, _onFail, 'get');
+        Request(
+            GetApiRoutes('GetPokemons'),
+            {},
+            ({ pokemon }) => setPokemons(pokemon),
+            (err) => err,
+            'get');
     };
 
-    const _onSuccess = (data) => {
-        setPokemons(data.pokemon);
+    const _filter = () => {
+        if (!valueInput) {
+            _getPokemons();
+        } else {
+            const pokemonsFiltered = _getPokemonsFiltered();
+
+            setPokemons(pokemonsFiltered);
+        }
     };
 
-    const _onFail = (err) => {
-        console.log(err);
+    const _getPokemonsFiltered = () => {
+        const valueFilter = _normalizeToString(valueInput);
+
+        return pokemons.filter(pokemon => {
+            return _normalizeToString(pokemon.num) === valueFilter ||
+                _normalizeToString(pokemon.name).includes(valueFilter);
+        });
     };
 
-    const _filter = () => { };
+    const _normalizeToString = (value) => {
+        return value.toString().toLowerCase();
+    };
 
     return (
         <div className="home-page">
@@ -40,8 +56,8 @@ export const Home = () => {
             <div className="content-body-page">
                 {pokemons.map((pokemon) => (
                     <Card
-                        number={123}
-                        name={"Bubasurl"}
+                        number={pokemon.num}
+                        name={pokemon.name}
                         labels={pokemon.type}
                         image={pokemon.img}
                     />
