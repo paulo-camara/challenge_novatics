@@ -1,5 +1,5 @@
 
-import './App.scss';
+import './main.scss';
 import { Layout } from './components/shared/Layout/Layout';
 import { WithRouter } from './components/Router';
 
