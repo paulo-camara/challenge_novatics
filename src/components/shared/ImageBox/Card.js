@@ -4,11 +4,11 @@ import ColorHash from 'color-hash'
 
 import { LabelWithColor } from '../LabelWithColor/LabelWithcolor';
 
-export const Card = ({ image, number, name, labels, sizeImage = '150px' }) => {
+export const Card = ({ image, number, name, labels, onClick, sizeImage = '150px' }) => {
     const colorHash = new ColorHash();
 
     return (
-        <BoxImage>
+        <BoxImage onClick={onClick}>
             <ImageContainer size={sizeImage}>
                 <Image src={image} />
             </ImageContainer>
@@ -28,12 +28,12 @@ const ContentLabels = styled.div`
     justifyContent: start;
 `;
 
-const ImageContainer = styled.div`
+export const ImageContainer = styled.div`
     height: ${props => props.size};
     width: ${props => props.size};
 `;
 
-const Image = styled.img`
+export const Image = styled.img`
     width: 100%;
     height: 100%;
 `;
@@ -56,6 +56,7 @@ const NameCard = styled.div`
 `;
 
 const BoxImage = styled.div`
+    cursor: pointer;
     padding: 10px;
     margin: 10px;
     width: 150px;
@@ -63,5 +64,5 @@ const BoxImage = styled.div`
     border-radius: 4px;
     border: 2px solid #f0f0f0;
     background-color: #f0f0f0;
-    box-shadow: 5px 5px 12px #dcdada;
+    box-shadow: 5px 5px 12px #c1b4b4;
 `;
