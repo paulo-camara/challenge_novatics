@@ -1,8 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import ColorHash from 'color-hash'
+
 import { LabelWithColor } from '../LabelWithColor/LabelWithcolor';
 
 export const Card = ({ image, number, name, labels, sizeImage = '150px' }) => {
+    const colorHash = new ColorHash();
+
     return (
         <BoxImage>
             <ImageContainer size={sizeImage}>
@@ -12,7 +16,7 @@ export const Card = ({ image, number, name, labels, sizeImage = '150px' }) => {
             <NameCard>{name}</NameCard>
             <ContentLabels>
                 {labels.map((label) => (
-                    <LabelWithColor color={'green'}>{label}</LabelWithColor>
+                    <LabelWithColor color={colorHash.hex(label)}>{label}</LabelWithColor>
                 ))}
             </ContentLabels>
         </BoxImage>
