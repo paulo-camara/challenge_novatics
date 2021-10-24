@@ -13,16 +13,16 @@ export const PokemonDetailModal = ({ pokemon, isOpen, onCloseModal }) => {
         >
             <div>
                 <ItemInformationContainer>
-                    {pokemon.weaknesses && <div>
-                        <Title isBold={true} color={'#000000'}>Weaknesses</Title>
+                    {pokemon.weaknesses && <div style={{ marginRight: '50px' }}>
+                        <Title isBold={true} color={'#ee6b2f'}>Weaknesses</Title>
                         <ItemInformation>
-                            {pokemon.weaknesses.map((item, index) => <span>{`${index + 1}-${item}`}</span>)}
+                            {pokemon.weaknesses.map((item, index) => <li>{item}</li>)}
                         </ItemInformation>
                     </div>}
                     {pokemon.next_evolution && <div>
-                        <Title isBold={true} color={'#000000'}>Next Evolution</Title>
+                        <Title isBold={true} color={'#ee6b2f'}>Next Evolution</Title>
                         <ItemInformation>
-                            {pokemon.next_evolution.map((item) => <span>{`${item.num}-${item.name}`}</span>)}
+                            {pokemon.next_evolution.map((item) => <li>{`${item.num} - ${item.name}`}</li>)}
                         </ItemInformation>
                     </div>}
                 </ItemInformationContainer>
@@ -39,7 +39,7 @@ export const PokemonDetailModal = ({ pokemon, isOpen, onCloseModal }) => {
 const ApresentationPokemonContainer = styled.div`
     display: flex;
     justify-content: center;
-    height: 200px;
+    height: 180px;
 `;
 
 const ItemInformationContainer = styled.div`
@@ -47,8 +47,7 @@ const ItemInformationContainer = styled.div`
     justify-content: space-around;
 `;
 
-const ItemInformation = styled.div`
-    display: flex;
+const ItemInformation = styled.ul`
     gap: 10px;
     margin-top: 10px;
     margin-bottom: 15px;
