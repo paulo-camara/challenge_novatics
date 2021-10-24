@@ -6,6 +6,7 @@ export const Input = ({ onChange, value, placeholder, style }) => {
         value={value}
         className="input-field"
         placeholder={placeholder}
-        onChange={({ target }) => onChange(target.value)}
+        onChange={event => onChange(event)}
+        onKeyUp={event => onChange(event)}
     />
 };

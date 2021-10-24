@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '../Button/Button';
 
-export const Modal = ({ isOpen, title, children, onCancel }) => {
+export const Modal = ({ isOpen, title, children, onCancel, onConfirm }) => {
     return isOpen && <div className="modal-container">
         <div className="modal">
             <div className="header-modal">
@@ -12,7 +12,8 @@ export const Modal = ({ isOpen, title, children, onCancel }) => {
             </div>
 
             <div className="actions">
-                <Button title={"Fechar"} onClick={onCancel} />
+                {onCancel && <Button title={"Close"} onClick={onCancel} color={'#d22828'} />}
+                {onConfirm && <Button title={"Confim"} onClick={onConfirm} />}
             </div>
         </div>
     </div>

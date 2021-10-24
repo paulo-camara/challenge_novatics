@@ -9,7 +9,7 @@ export const Filter = ({ onChange, value, onClick }) => {
             <Title>Name Or Number</Title>
             <div className="filter-fields">
                 <Input onChange={onChange} value={value} />
-                <Button title="Buscar" onClick={onClick} />
+                <Button title="Search" onClick={onClick} />
             </div>
         </div>
     );

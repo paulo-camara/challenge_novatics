@@ -12,7 +12,7 @@ export const Card = ({ image, number, name, labels, onClick, sizeImage = '150px'
             <ImageContainer size={sizeImage}>
                 <Image src={image} />
             </ImageContainer>
-            <NumberOfCard>{number}</NumberOfCard>
+            <NumberOfCard>{`#${number}`}</NumberOfCard>
             <NameCard>{name}</NameCard>
             <ContentLabels>
                 {labels.map((label) => (
@@ -45,7 +45,7 @@ const NumberOfCard = styled.div`
     justify-content: start;
     color: #7c7777;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 13px;
 `;
 
 const NameCard = styled.div`
