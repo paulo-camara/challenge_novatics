@@ -16,7 +16,7 @@ For better visualization in mobile device environments for responsiveness testin
 
 ## Start local project
 ```
-git clone <project>
+git clone https://github.com/paulo-camara/challenge_novatics.git
 cd challenge_novatics
 npm install
 npm start
