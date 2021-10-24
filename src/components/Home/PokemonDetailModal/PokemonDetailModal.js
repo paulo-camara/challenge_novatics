@@ -39,7 +39,6 @@ export const PokemonDetailModal = ({ pokemon, isOpen, onCloseModal }) => {
 const ApresentationPokemonContainer = styled.div`
     display: flex;
     justify-content: center;
-    height: 180px;
 `;
 
 const ItemInformationContainer = styled.div`
